@@ -1,0 +1,120 @@
+	
+<html>
+
+<title>Basic SPA Example</title>
+
+	<script src="jquery.min.js" type="text/javascript"></script>
+	
+	<script language="javascript">
+
+	    function pg(page) {
+
+	    	data = "";
+
+	    	/*
+
+	    	You can do a ajax call to return a HTML content and push into a div
+	    	But in this case, an example, I just commented that function and did a basic if instead.
+	                    
+	        $.ajax({
+
+	                type: 'GET',
+	                data: { params: params},
+	                url: page + '?ajax=true&id=' + Math.ceil ( Math.random() * 100000 ), 
+	                
+	                
+	                success: function(data) {
+	                
+	                $('#p').html(data);
+	                
+
+	                	// callback functions to load on the page
+
+
+	                
+	                }
+	        });
+
+			*/
+			
+
+			if (page == 'Page1') {
+
+				data = "Page one!"
+
+			}
+
+			if (page == 'Page2') {
+
+				data = "Page two!"
+				
+			}
+
+			if (page == 'Page3') {
+
+				data = "Page three!"
+				
+			}
+
+			if (page == 'Page4') {
+
+				data = "Page four!"
+				
+			}
+
+			if (page == 'spaExample.html') {
+
+				data = "Please, use this sample menu to try the <b>SPA experience</b><br><br>Important: <font color='red'>It doesn't works locally, so please run this on a web server</font>"
+			}
+
+			data = '<br><br><b>' + data + '</b><br><br><br>Look at the browser URL and see the change without refresh! +_+'
+
+			
+			// push the HTML into the div
+			$('#p').html(data);
+	        
+
+	        //to change the browser URL to the given link location
+	        
+	        if(page + ''!=window.location){
+
+
+	        	window.history.pushState({path:page + ''},'',page + '');
+
+
+	        }
+	        
+	        /*
+	        stop refreshing to the page given in
+	        return false;
+	        */
+
+	        
+	        /* the below code is to override back button to get the ajax content without page reload*/
+	        $(window).bind('popstate', function() {
+		        $.ajax({url:location.pathname + '?ajax=true',success: function(data){
+
+
+		            
+
+		       		}
+		        });
+	        });
+
+	        
+
+
+	                
+
+	    }
+
+	</script>
+
+
+	<a style="cursor: pointer" onClick="pg('spaExample.html')"><font color='black'>[Main]</font></a>
+	<a style="cursor: pointer" onClick="pg('Page1')"><font color='green'>[Page 1]</font></a>
+	<a style="cursor: pointer" onClick="pg('Page2')"><font color='orange'>[Page 2]</font></a>
+	<a style="cursor: pointer" onClick="pg('Page3')"><font color='blue'>[Page 3]</font></a>
+	<a style="cursor: pointer" onClick="pg('Page4')"><font color='red'>[Page 4]</font></a>
+
+	<div id="p"><br><br>Please, use this sample menu to try the <b>SPA experience</b><br><br>Important: <font color="red">It doesn't works locally, so please run this on a web server</font></p>
