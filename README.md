@@ -5,6 +5,6 @@ SPA experience example using only JQuery and HTML.
 - I use this technique to many HTML5 projects, and works perfectly;
 - Load your website just one time, and make the navigation and UX much better.
 
-Just download both files, RUN IT ON A WEB SERVER. This function doesn't work locally!
+Just download both files, RUN IT ON A WEB SERVER. This doesn't work locally!
 
 Have fun! +_+
