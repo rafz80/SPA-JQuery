@@ -33,8 +33,8 @@ If use 'href' the page will scroll up on click, by default. So, I didn't use it.
 
 	                type: 'GET',
 	                data: { params: params},
-	                url: page + '?ajax=true&id=' + Math.ceil ( Math.random() * 100000 ), 
-	                
+	                url: page + '?' + Math.ceil ( Math.random() * 100000 ), 
+	                // I use this random number after the '?' to avoid a unrefreshed content. So, the browser always consider as a new content
 	                
 	                success: function(data) {
 	                
